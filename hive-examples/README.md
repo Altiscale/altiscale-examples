@@ -1,8 +1,6 @@
 # Hive UDF Examples
 
-1. Build the Jar
-
-mvn clean install
+1. Build the Jar: mvn clean install
 
 2. In Hive CLI: add jar /<path_to_jar>/hive-examples-1.0-SNAPSHOT.jar;
 
