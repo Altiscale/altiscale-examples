@@ -8,5 +8,5 @@ mvn clean install
 
 3. In Hive CLI: create temporary function my_lower as 'com.altiscale.example.ToLower';
 
-4. In Hive CLI: select my_lower(<col>) from <table> limit 10;
+4. In Hive CLI: select my_lower(col) from table limit 10;
 
