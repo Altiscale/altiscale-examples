@@ -69,8 +69,8 @@
           <updatePolicy>never</updatePolicy>
           <checksumPolicy>fail</checksumPolicy>
           </snapshots>
-          <id>HDPReleases</id>
-          <name>HDP Releases</name>
+          <id>ApacheMaven</id>
+          <name>ApacheMaven</name>
           <url>http://repo.maven.apache.org/</url> 
           <layout>default</layout>
     </repository>
