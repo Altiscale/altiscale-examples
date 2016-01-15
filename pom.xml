@@ -14,8 +14,10 @@
   </scm>
 
   <properties>
-    <distMgmtInternalReleaseUrl>${custom.internal.url}</distMgmtInternalReleaseUrl>
-    <distMgmtSnapshotsUrl>${custom.snapshot.url}</distMgmtSnapshotsUrl>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="./url_property.xml">
+      <xi:fallback>
+      </xi:fallback>
+    </xi:include> 
   </properties>
 
   <modules>
