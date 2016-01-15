@@ -65,8 +65,9 @@ public class Client {
     // Setup jar for ApplicationMaster
     LocalResource appMasterJar = Records.newRecord(LocalResource.class);
     setupAppMasterJar(jarPath, appMasterJar);
+    System.out.println("Jar name is " + jarPath.getName());
     amContainer.setLocalResources(
-        Collections.singletonMap("simpleapp.jar", appMasterJar));
+        Collections.singletonMap(jarPath.getName(), appMasterJar));
 
     // Setup CLASSPATH for ApplicationMaster
     Map<String, String> appMasterEnv = new HashMap<String, String>();
@@ -81,7 +82,7 @@ public class Client {
     // Finally, set-up ApplicationSubmissionContext for the application
     ApplicationSubmissionContext appContext = 
     app.getApplicationSubmissionContext();
-    appContext.setApplicationName("simple-yarn-app"); // application name
+    appContext.setApplicationName("apache-yarn-example"); // application name
     appContext.setAMContainerSpec(amContainer);
     appContext.setResource(capability);
     appContext.setQueue("default"); // queue 
@@ -96,6 +97,7 @@ public class Client {
     while (appState != YarnApplicationState.FINISHED && 
            appState != YarnApplicationState.KILLED && 
            appState != YarnApplicationState.FAILED) {
+      System.out.println("App Status = " + appState);
       Thread.sleep(100);
       appReport = yarnClient.getApplicationReport(appId);
       appState = appReport.getYarnApplicationState();
