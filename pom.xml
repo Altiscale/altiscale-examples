@@ -52,4 +52,13 @@
 
     </plugins>
   </build>
+
+  <!-- The following aligns with whta you have in .m2/settings.xml -->
+  <distributionManagement>
+    <repository>
+      <id>altiscale.repos</id>
+      <name>Altiscale Internal Repository</name>
+      <url>Archiva, see settings.xml</url>
+    </repository>
+  </distributionManagement>
 </project>
