@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.altiscale.hadoop.example</groupId>
+  <artifactId>apache-yarn-example</artifactId>
+  <version>1.1.0-SNAPSHOT</version>
+  <name>apache-yarn-example</name>
+
+  <url>https://github.com/Altiscale/altiscale-examples/apache-yarn-example</url>
+
+  <scm>
+    <connection>scm:git:git@github.com:Altiscale/altiscale-examples</connection>
+    <tag>HEAD</tag>
+  </scm>
+ 
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-yarn-client</artifactId>
+      <version>2.7.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>2.7.1</version>
+    </dependency>
+  </dependencies>
+
+  <!--
+  <distributionManagement>
+    <repository>
+      <id>snapshots</id>
+      <name>Altiscale Archiva Snapshots Repository</name>
+      <url>https://archiva.service.verticloud.com/archiva/repository/snapshots/</url>
+    </repository>
+  </distributionManagement>
+  -->
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.3.2</version>
+      </plugin>
+
+      <!-- To insert current git repository refspec into jars and wars -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <phase>generate-ressources</phase>
+            <goals>
+              <goal>create-metadata</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>
