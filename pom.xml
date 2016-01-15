@@ -13,6 +13,11 @@
     <tag>altiscale-example-1.0.0</tag>
   </scm>
 
+  <properties>
+    <distMgmtInternalReleaseUrl>${custom.internal.url}</distMgmtInternalReleaseUrl>
+    <distMgmtSnapshotsUrl>${custom.snapshot.url}</distMgmtSnapshotsUrl>
+  </properties>
+
   <modules>
     <module>apache-yarn-example</module>
   </modules>
@@ -94,9 +99,14 @@
   <!-- The following aligns with whta you have in .m2/settings.xml -->
   <distributionManagement>
     <repository>
-      <id>altiscale.repos</id>
+      <id>internal</id>
       <name>Altiscale Internal Repository</name>
-      <url>Archiva, see settings.xml</url>
+      <url>${distMgmtInternalReleaseUrl}</url>
     </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Altiscale Snapshots Repository</name>
+      <url>${distMgmtSnapshotsUrl}</url>
+    </snapshotRepository>
   </distributionManagement>
 </project>
