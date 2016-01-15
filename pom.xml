@@ -1,4 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <groupId>com.altiscale.secrets</groupId>
+    <artifactId>altiscale-secrets</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>./secret.xml</relativePath>
+  </parent>
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.altiscale.example</groupId>
   <artifactId>altiscale-example</artifactId>
@@ -13,12 +21,8 @@
     <tag>altiscale-example-1.0.0</tag>
   </scm>
 
-  <properties>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="./url_property.xml">
-      <xi:fallback>
-      </xi:fallback>
-    </xi:include> 
-  </properties>
+  <!-- sensitive properties are defined in parent pom that are not available here -->
+  <!-- rely on other ways to set the sensitive properties -->
 
   <modules>
     <module>apache-yarn-example</module>
