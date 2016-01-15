@@ -49,8 +49,46 @@
           </execution>
         </executions>
       </plugin>
-
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <outputDirectory>${basedir}/target/</outputDirectory>
+          <!-- finalName>filename-of-generated-jar-file</finalName -->
+          <attach>false</attach>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.3</version>
+        <executions>
+          <execution>
+            <id>javadoc-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <!-- switch on dependency-driven aggregation -->
+              <includeDependencySources>true</includeDependencySources>
+              <dependencySourceIncludes>
+                <dependencySourceInclude>apache-yarn-example:*</dependencySourceInclude>
+              </dependencySourceIncludes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
+
+    <!-- extension plugin 'wagon' for maven-release plugin to deploy to maven repo -->
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+         <artifactId>wagon-http</artifactId>
+         <version>2.10</version>
+      </extension>
+    </extensions>
   </build>
 
   <!-- The following aligns with whta you have in .m2/settings.xml -->
